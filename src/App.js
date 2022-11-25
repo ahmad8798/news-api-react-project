@@ -7,7 +7,7 @@ import Card from './Card';
 function App() {
 
   const [apidata,setApiData] = useState([])
-  const [country,setCountry]=useState('us')
+  const [country,setCountry]=useState('in')
   const [searchvalue,setSearchValue]=useState('')
   useEffect(()=>{
     const asyncFetchNewsData = async()=>{
@@ -22,7 +22,7 @@ function App() {
     
     <div className="App">
       <div className='container'>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light rounded mt-2">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">News api</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDarkDropdown" aria-controls="navbarNavDarkDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,6 +38,10 @@ function App() {
                 <li><a onClick={()=>setCountry('us')} class="dropdown-item" href="#">USA</a></li>
                 <li><a onClick={()=>setCountry('gb')}  class="dropdown-item" href="#">UK</a></li>
                 <li><a onClick={()=>setCountry('in')} class="dropdown-item" href="#">India</a></li>
+                <li><a onClick={()=>setCountry('au')} class="dropdown-item" href="#">Australia</a></li>
+                <li><a onClick={()=>setCountry('ca')} class="dropdown-item" href="#">Canada</a></li>
+                <li><a onClick={()=>setCountry('nz')} class="dropdown-item" href="#">NewZealand</a></li>
+                
               </ul>
             </li>
           </ul>
@@ -51,12 +55,12 @@ function App() {
         <div className='row'>
           {
             apidata.filter((val)=>{
-              if(searchvalue==""){
+              if(searchvalue===""){
                 return val;
               } else if(val.title.toLowerCase().includes(searchvalue.toLowerCase())){
                 return val;
               }
-             
+              
             }).map(val=>{
               return(
                 
